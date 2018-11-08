@@ -1,0 +1,691 @@
+:SDL_CONFIGFILE_HELP
+fullscreen -- Dosbox'u dogrudan tam ekran olarak baslatir.
+fulldouble -- Tam ekrandayken Dubble Buffering kullanir.
+fullresolution -- Tam ekranda hangi cozunurlugun kullanilacagi: original yada fixed size (sabit boyut) (yani 1024x768).
+windowresolution -- Pencereyi bu boyuta olcekler EGER cikis aygiti hardware scaling destekliyorsa.
+output -- Cikis olarak ne kullanilacagi: surface,overlay,opengl,openglnb,ddraw.
+autolock -- Ekrana tikladiginda fare kendiliginden kilitlenir.
+sensitiviy -- Fare hassasligi.
+waitonerror -- Dosbox'ta hata oldugunda console'u kapatmadan kapatmadan once bekler.
+priority -- Dosbox icin oncelik seviyesi: lowest(en dusuk),lower(dusuk),normal,higher(yuksek),highest(en yuksek),pause(duraklat). (aktif degilken).
+            Virgulun yaninda bir ikincisi dosbox'un simge durumuna kucultuldugu/aktif olmadigi zamanlar icindir.
+mapperfile -- Key/event mapping'lerini kaydetmek/yuklemek icin kullanilacak dosya.
+usescancodes -- symkeys kullanimini onler. Tum isletim sistemlerinde calismayabilir.
+.
+:DOSBOX_CONFIGFILE_HELP
+language -- Baska dil dosyasi secer.
+memsize -- Dosbox'un sahip oldugu hafiza (Megabayt cinsinden).
+machine -- Emule etmeye calistigi makine:hercules,cga,tandy,pcjr,vga.
+captures -- Ekran goruntusu, ses kaydi, midi gibi seylerin kaydedildigi klasor.
+.
+:RENDER_CONFIGFILE_HELP
+frameskip -- Yeni bir tane cizmeden evel dosbox'un kac goruntu atlatacagidir.
+aspect -- Aspect dogrulamasi yapar, Eger cikis metodunuz olceklendirme desteklemiyorsa isleri yavaslatir!.
+scaler -- Dusuk cozunurluk modlarini genisletmek/daraltmak icin kullanilacak olceklendirici.
+          Desteklenenler: none,normal2x,normal3x,advmame2x,advmame3x,hq2x,hq3x,
+                          2xsai,super2xsai,supereagle,advinterp2x,advinterp3x,
+                          tv2x,tv3x,rgb2x,rgb3x,scan2x,scan3x.
+          Eger "forced" eklenirse (scaler=hq2x forced gibi), sonuc istendigi gibi olmasada
+          olceklendirici kullanilacaktir.
+.
+:CPU_CONFIGFILE_HELP
+core -- Emulasyonda kullanilacak CPU cekirdegi: normal,simple,dynamic,auto.
+         Eger uygunsa kendiliginden normal'den dynamic'e gecer.
+cycles -- DOSBox'un her milisaniye emule etmeye calisacagi yonerge sayisi.
+          Bu degeri cok yuksek degerlere ayarlamak seste kaybolmaya yada gecikmeye sebep olur.
+          Ayrica max.'a ayarlayarak DOSBox'un dogru degeri tahmin etmesini saglayabilirsiniz.
+          Varsayilan secenek (auto) eger uygunsa max'a gecer.
+cycleup   -- Tus kombinasyonu ile alcaltilacak/yukseltilecek dongu sayisi.
+cycledown    100'den kucuk bir deger ayarlandiginda yuzde hesabina gore belirlenir.
+.
+:MIXER_CONFIGFILE_HELP
+nosound -- Sessiz modu acar, ses yine de emule edilecektir.
+rate -- Karistirici ornekleme hizi(sample rate). Herhangi bir aygiti bundan daha yuksek
+        bir degere ayarlamak buyuk ihtimalle ses kalitesini dusurecektir. 
+blocksize -- Karistirici block boyutu. Buyuk boyutlar sesin takilmasini engelleyebilir
+             ama ses gecikecektir.          
+prebuffer -- Block boyutu uzerinde kac tane veri milisaniyesi tutulacagidir.
+.
+:MIDI_CONFIGFILE_HELP
+mpu401      -- emule edilecek MPU-401 turu: none, uart veya intelligent.
+device      -- MIDI verisini MPU-401'den alacak olan aygit.
+               default,alsa,oss,win32,coreaudio yada none olabilir.
+config      -- Aygit icin ozel ayarlar. Windows icin kullanmak istediginiz
+               aygitin ID'sini girin. Detaylar icin README'ye bakin. 
+.
+:SBLASTER_CONFIGFILE_HELP
+sbtype -- emule edilecek sblaster turu:none,sb1,sb2,sbpro1,sbpro2,sb16.
+sbbase,irq,dma,hdma -- Soundblaster'in IO/IRQ/DMA/High DMA adresi.
+mixer -- Sounblaster karistiricisinin DOSBox karistiricisini degistirmesine izin verir.
+oplmode -- OPL emulasyon turu: auto,cms,opl2,dualopl2,opl3.
+           Auto modundayken sblaster turune gore belirlenir.
+           Tum OPL modlari 'Adlib' dir, CMS haric.
+oplrate -- OPL muzik emulasyonunun ornekleme sikligi(sample rate).
+.
+:GUS_CONFIGFILE_HELP
+gus -- Gravis Ultrasound emulasyonunu acar.
+gusbase,irq1,irq2,dma1,dma2 -- Gravis Ultrasoun'un IO/IRQ/DMA adresleri. 
+           (Ayni IRQ'lar ve DMA'lar sorun cikarmaz.)
+gusrate -- Ultrasound emulasyonunun ornekleme sikligi (sample rate).
+ultradir -- Ultrasound dizininin adresi. Bu dizinde GUS oynatmak icin
+            gerekli yama dosyalarinin oldugu br MIDI dizini olmali.
+            Timidity ile kullanilan yama setleri duzgun calisiyor olmali.
+.
+:SPEAKER_CONFIGFILE_HELP
+pcspeaker -- Bilgisayar hoparloru emulasyonunu acar.
+pcrate -- Bilgisayar hoparloru ses neslinin ornekleme sikligi(sample rate).
+tandy -- Tandy Sound System emulasyonunu acar. (off,on,auto).
+         "auto" icin sadece makine tandy'e ayarlandiysa Tandysound emulasyonu sunulur.
+tandyrate -- Tandy 3-Voice neslinin ornekleme sikligi(sample rate).
+disney -- Disney Sound Sourse emulasyonunu acar. Covox Voice Master ve Speech Thing uyumludur.
+.
+:JOYSTICK_CONFIGFILE_HELP
+joysticktype -- Emule edilecek joystick turu: auto (varsayilan), none,
+                2axis (iki joystick destekler,
+                4axis (bir joystick destekler, ilk joystick kullanilir),
+                4axis_2 (bir joystick destekler, ikinci joystick kullanilir),
+                fcs (Thrustmaster), ch (CH Flightstick).
+                none joystick emulasyonunu kapatir.
+                auto, gercek joysticklere gore emulasyon secer.
+timed -- Eksen icin zamanli araliklari acar(timed interval). ("false" eski stil davranis icindir.)
+autofire -- Tusa basili tuttugunuz surece ates devamli ates eder.
+swap34 -- 3. ve 4. eksenlerin yerlerini degistirir. bazi jostick'ler icin kullanisli olabilir.
+buttonwrap -- emule edilen buton kadar button wrapping acar.
+.
+:SERIAL_CONFIGFILE_HELP
+serial1-4 -- Com port'una bagli olan aygitin turunu ayarlar.
+             disabled, dummy, modem, nullmodem, directserial olabilir.
+             Ek parametreler su sekilde ayni satirda olmalidir;
+             parametre:deger. Tum turler icin parametre irq'dur.
+             directserial: realport (gerekli), rxdelay (istege bagli).
+             modem icin: listenport (istege bagli).
+             nullmodem icin: server, rxdelay, txdelay, telnet, usedtr,
+                            transparent, port, inhsocket (hepsi istege bagli).
+             Ornek: serial1=modem listenport:5000
+.
+:DOS_CONFIGFILE_HELP
+xms -- XMS destegini acar.
+ems -- EMS destegini acar.
+umb -- UMB destegini acar.
+keyboardlayout -- Klavye duzeninin dil kodu (yada "none").
+.
+:IPX_CONFIGFILE_HELP
+ipx -- UDP/IP emulasyonu uzerinde ipx'i acar.
+.
+:AUTOEXEC_CONFIGFILE_HELP
+Buradaki satirlar acilista calistirilacak.
+.
+:CONFIGFILE_INTRO
+# Bu DOSBox %s icin ayar dosyasidir.
+# "#" ile baslayan satirlar yorum(comment) satirlaridir.
+# Her secenegin etkilerini (ozetle) belgelemek icin kullanilir.
+.
+:PROGRAM_CONFIG_FILE_ERROR
+%s dosyasi acilamiyor.
+.
+:PROGRAM_CONFIG_USAGE
+Config araci:
+Su anki ayarlari kaydetmek icin: -writeconf dosyaadi
+Su anki dil string'lerini kaydetmek icin: -writelang dosyaadi
+.
+:PROGRAM_CONFIG_SECTION_ERROR
+%s bolumu yok.
+.
+:PROGRAM_CONFIG_PROPERTY_ERROR
+Oyle bir bolum yada ozellik yok.
+.
+:PROGRAM_CONFIG_NO_PROPERTY
+%s ozelligi %s bolumunde yok.
+.
+:PROGRAM_CONFIG_GET_SYNTAX
+Dogru sozdizimi: config -get "bolum ozelligi".
+.
+:PROGRAM_MOUNT_CDROMS_FOUND
+Bulunan CDROMlar: %d
+.
+:PROGRAM_MOUNT_STATUS_2
+                                       %c srcs olarak %s atand. 
+.
+:PROGRAM_MOUNT_STATUS_1
+Su anki atanmis suruculer:
+.
+:PROGRAM_MOUNT_ERROR_1
+%s klasoru yok.
+.
+:PROGRAM_MOUNT_ERROR_2
+%s bir dizin degil.
+.
+:PROGRAM_MOUNT_ILL_TYPE
+Gecersiz tur %s.
+.
+:PROGRAM_MOUNT_ALREADY_MOUNTED
+%c surucusu zaten %s ile atanmis. 
+.
+:PROGRAM_MOUNT_USAGE
+Kullanimi [34;1mMOUNT Surucu-harfi Yerel-dizin[0m
+Boylece MOUNT c c:\windows DOSBox'da c: surucusu olarak windows dizinini atar.
+.
+:PROGRAM_MOUNT_UMOUNT_NOT_MOUNTED
+%c surucusu atanmamis.
+.
+:PROGRAM_MOUNT_UMOUNT_SUCCES
+%c surucusu basariyla kaldirildi.
+.
+:PROGRAM_MOUNT_UMOUNT_NO_VIRTUAL
+Sanal suruculer cikarilamaz.
+.
+:PROGRAM_MOUNT_WARNING_WIN
+[31;1m c:\'yi disk olarak atamak onerilmez. Lutfen bir dahaki sefere (alt)dizin deneyin. [0m
+.
+:PROGRAM_MOUNT_WARNING_OTHER
+[31;1m / disk atamasi onerilmez. Lutfen bir dahaki sefere (alt)dizin deneyin. [0m
+.
+:PROGRAM_MEM_CONVEN
+%10d Kb bos conventional memory
+.
+:PROGRAM_MEM_EXTEND
+%10d Kb bos extended memory
+.
+:PROGRAM_MEM_EXPAND
+%10d Kb bos expanded memory
+.
+:PROGRAM_MEM_UPPER
+%10d Kb bos upper memory %d blok'ta (en buyuk UMB %d Kb)
+.
+:PROGRAM_LOADFIX_ALLOC
+%d kb ayrildi(allocate).
+.
+:PROGRAM_LOADFIX_DEALLOC
+%d kb bosaltildi.
+.
+:PROGRAM_LOADFIX_DEALLOCALL
+Kullanilan hafiza bosaltildi.
+.
+:PROGRAM_LOADFIX_ERROR
+Hafiza ayirma(memory allocation) hatasi.
+.
+:MSCDEX_SUCCESS
+MSCDEX yuklendi.
+.
+:MSCDEX_ERROR_MULTIPLE_CDROMS
+MSCDEX: Basarisiz: CDRom surucusu harfleri sirali olmali.
+.
+:MSCDEX_ERROR_NOT_SUPPORTED
+MSCDEX: Basarisiz: Henuz desteklenmiyor.
+.
+:MSCDEX_ERROR_PATH
+MSCDEX: Basarisiz: Adres gecerli degil.
+.
+:MSCDEX_TOO_MANY_DRIVES
+MSCDEX: Basarisiz: Cok fazla CD-ROM surucusu (maks: 5). MSCDEX yuklemesi basarisiz.
+.
+:MSCDEX_LIMITED_SUPPORT
+MSCDEX: Altdizin atandi: sinirli destek.
+.
+:MSCDEX_INVALID_FILEFORMAT
+MSCDEX: Basarisiz: Dosya ya iso/cue dosyasi degil yada bozuk.
+.
+:MSCDEX_UNKNOWN_ERROR
+MSCDEX: Basarisiz: Bilinmeyen hata.
+.
+:PROGRAM_RESCAN_SUCCESS
+Surucu onbellegi temizlendi.
+.
+:PROGRAM_INTRO
+[2J[32;1mDOSBox'a Hosgeldiniz[0m, Ses ve grafikli bir x86 emulatorudur.
+DOSBox sizin icin eski basit DOS'a benzer bir arayuz olusturur.
+
+Basit surucu atama hakkinda daha fazla bilgi icin [34;1mintro mount[0m yazin.
+CD-ROM destegi hakkinda daha fazla bilgi icin [34;1mintro cdrom[0m yazin.
+Ozel tuslar hakkinda daha fazla bilgi icin [34;1mintro special[0m yazin.
+DOSBox hakkinda daha fazla bilgi icin 
+[34;1mhttp://dosbox.sourceforge.net/wiki[0m adresine bakin.
+
+[31;1mHata oldugunda DOSBox uyari vermeksizin durur/kapanir![0m
+
+
+.
+:PROGRAM_INTRO_MOUNT_START
+[32;1mIste baslamaniz icin birkac komut:[0m
+Kendi dosya sisteminizde bulunan dosyalari kullanmadan once,
+Dosyalarin oldugu dizini bir surucuye atamalisiniz.
+
+.
+:PROGRAM_INTRO_MOUNT_WINDOWS
+[44;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ [32mmount c c:\dosprog\[37m                                                    บ
+บ Icinde c:\dosprog'dakileri bulunduran bir C surucusu yaratacaktir.     บ
+บ                                                                        บ
+บ [32mc:\dosprog\[37m ornektir. Kendi oyunlarinizin oldugu dizinle degistirin.  [37m บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+.
+:PROGRAM_INTRO_MOUNT_OTHER
+[44;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ [32mmount c ~/dosprog[37m                                                     บ
+บ Icinde ~/dosprog'dakileri bulunduran bir C surucusu yaratacaktir.     บ
+บ                                                                     บ
+บ [32m~/dosprog[37m ornektir. Kendi oyunlarinizin oldugu dizinle degistirin. [37m   บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+.
+:PROGRAM_INTRO_MOUNT_END
+Disk atama basariyla tamamlandiginda yeni yaratilmis taze C-surucunuze [34;1mc:[0m
+yazarak ulasabilirsiniz. Oradayken [34;1mdir[0m yazmak size icindekileri gosterecektir.
+[34;1mcd[0m yazmak (dizin listesinde [33;1m[][0m ile taninan) bir dizine girmenizi saglar.
+[31m.exe .bat[0m and [31m.com[0m ile biten programlari/dosyalari calistirabilirsiniz.
+.
+:PROGRAM_INTRO_CDROM
+[2J[32;1mDOSBox'ta gercek/sanal bir surucu nasil yaratilir:[0m
+DOSBox birkac seviyede CD-ROM emulasyonu saglar.
+
+[33mBasit[0m seviye tum CD-ROM suruculerinde ve normal dizinlerde calisir.
+MSCDEX yukler ve dosyalari salt okunur olarak isaretler.
+Bu genellikle cogu oyun icin yeterlidir:
+[34;1mmount d [0;31mD:\[34;1m -t cdrom[0m   veya   [34;1mmount d C:\ornek -t cdrom[0m
+Calismazsa DOSBox'a CD-ROM'un basligini soylemek zorunda olabilirsiniz:
+[34;1mmount d C:\ornek -t cdrom -label CDBASLIGI[0m
+
+[33mSonraki[0m seviye biraz low-lewel destegi ekler.
+Bu yuzden sadece CD-ROM surucusunde calisir:
+[34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0[0m
+
+Destegin [33mSon[0m seviyesi isletim sisteminize baglidir:
+[1mWindows 2000[0m, [1mWindows XP[0m ve [1mLinux[0m icin:
+[34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-ioctl[0m
+ASPI layer yuklu bur  [1mWindows 9x[0m icin:
+[34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-aspi[0m
+
+[0;31mD:\[0m'yi CD-ROM'unuzun adresi ile degistirin.
+[34;1m-usecd [33m0[0m'daki [33;1m0[0m'i [34;1mmount -cd[0m yazdiginizda bildirilen numara ile degistirin.
+.
+:PROGRAM_INTRO_SPECIAL
+[2J[32;1mOzel tuslar:[0m
+Bunlar varsayilan tus atamalaridir.
+[33mkeymapper[0m'dan degistirilebilirler.
+
+[33;1mALT-ENTER[0m   : Tam ekran yapar yada tam ekrandan cikar.
+[33;1mALT-PAUSE[0m   : DOSBox'u duraklatir.
+[33;1mCTRL-F1[0m     : [33mKeymapper[0m'i baslatir.
+[33;1mCTRL-F4[0m     : Tum suruculerin dizin onbelleklerini gunceller!
+              Surucu olarak atanmis goruntu dosyasini degistirir.
+[33;1mCTRL-ALT-F5[0m : Ekranin filminin olusturulmasinin baslatir/durdurur.
+[33;1mCTRL-F5[0m     : Ekran goruntusu kaydeder.
+[33;1mCTRL-F6[0m     : Wav dosyasina ses kaydini baslatir/durdurur.
+[33;1mCTRL-ALT-F7[0m : OPL komutlari kaydini baslatir/durdurur.
+[33;1mCTRL-ALT-F8[0m : Raw MIDI komutlarinin kaydini baslatir/durdurur.
+[33;1mCTRL-F7[0m     : Pencere atlamayi dusurur.
+[33;1mCTRL-F8[0m     : Pencere atlamayi arttirir.
+[33;1mCTRL-F9[0m     : DOSBox'u sonlandirir.
+[33;1mCTRL-F10[0m    : Fareyi yakalar/birakir.
+[33;1mCTRL-F11[0m    : Emulasyonu yavaslatir. (DOSBox dongulerini azaltir).
+[33;1mCTRL-F12[0m    : Emulasyonu hizlandirir. (DOSBox dongulerini arttirir).
+[33;1mALT-F12[0m     : Hiz limitini kaldirir. (turbo dugmesi).
+.
+:PROGRAM_BOOT_NOT_EXIST
+Bootdisk dosyasi yok.  Basarisiz.
+.
+:PROGRAM_BOOT_NOT_OPEN
+Bootdisk dosyasi acilamiyor.  Basarisiz.
+.
+:PROGRAM_BOOT_WRITE_PROTECTED
+Goruntu dosyasi salt okunur! Sorun yaratabilir.
+.
+:PROGRAM_BOOT_PRINT_ERROR
+Bu komut DOSBox'u disketten yada harddisk goruntu dosyasindan baslatir.
+
+Bu komut icin,ctrl+f4 e basarak yer degistirebilen bir disket surucusu serisi
+olusturabilir, ve -l ile  baslatmak icin olusturulmus bir surucuyu belirleyebilirsiniz.
+Eger hicbir surucu belirtilmemisse, varsayilan olarak A surucusunden baslatilir.
+Baslatilabilir surucu harfleri sadece A,C ve D'dir. Harddiskten (C veya D) baslatmak
+icin, [34;1mIMGMOUNT[0m ile goruntu dosyasi onceden surucu olarak
+olusturulmus olmalidir.
+
+Bu komutun sozdizimi soyledir:
+
+[34;1mBOOT [diskimg1.img diskimg2.img] [-l surucuharfi][0m
+.
+:PROGRAM_BOOT_UNABLE
+%c surucusu baslatilamiyor.
+:PROGRAM_BOOT_IMAGE_OPEN
+Goruntu dosyasi aciliyor: %s
+.
+:PROGRAM_BOOT_IMAGE_NOT_OPEN
+%s acilamiyor.
+:PROGRAM_BOOT_BOOT
+%c surucusunden baslatiliyor...
+.
+:PROGRAM_BOOT_CART_WO_PCJR
+PCjr cartridge bulundu, ama makine PCjr degil.
+:PROGRAM_BOOT_CART_LIST_CMDS
+Bulunan PCjr cartridge commandos:%s.
+:PROGRAM_BOOT_CART_NO_CMDS
+PCjr cartridge commandos bulunamadi.
+:PROGRAM_IMGMOUNT_SPECIFY_DRIVE
+Goruntu dosyasinin atanacagi surucunun surucu harfi belirtilmeli.
+.
+:PROGRAM_IMGMOUNT_SPECIFY2
+Goruntu dosyasinin atanacagi surucunun surucu numarasi belirtilmeli (0 or 3). (0,1=fda,fdb;2,3=hda,hdb).
+.
+:PROGRAM_IMGMOUNT_SPECIFY_GEOMETRY
+[33mCD-ROM[0m goruntu dosyalari icin:   [34;1mIMGMOUNT surucu-harfi dosyanin yeri -t iso[0m
+
+[33mhardisk[0m goruntu dosyalari icin: Harddiskin surucu geometrisi belirlenmeli:
+bytes_per_sector, sectors_per_cylinder, heads_per_cylinder, cylinder_count.
+[34;1mIMGMOUNT surucu-harfi dosyanin-yeri -size bps,spc,hpc,cyl[0m
+.
+:PROGRAM_IMGMOUNT_INVALID_IMAGE
+Goruntu dosyasi yuklenemedi.
+Adresin dogru oldugundan ve goruntu dosyasinin ulasilabilir oldugundan emin olun.
+.
+:PROGRAM_IMGMOUNT_INVALID_GEOMETRY
+Goruntu dosyasindan surucu geometrisi cikartilamadi.
+Geometri belirtmek icin -size bps,spc,hpc,cyl parametlerini kullanin.
+.
+:PROGRAM_IMGMOUNT_TYPE_UNSUPPORTED
+"%s" turu desteklenmiyor. "hdd","floppy" yada "iso" olarak belirtin.
+.
+:PROGRAM_IMGMOUNT_FORMAT_UNSUPPORTED
+"%s" bicimi desteklenmiyor. "fat","iso" yada "none" olarak belirtin.
+.
+:PROGRAM_IMGMOUNT_SPECIFY_FILE
+Atamak icin "dosya" goruntu-dosyasi belirtilmeli.
+.
+:PROGRAM_IMGMOUNT_FILE_NOT_FOUND
+Goruntu dosyasi bulunamadi.
+.
+:PROGRAM_IMGMOUNT_MOUNT
+Surucu olarak dizin atamak icin, [34;1mMOUNT[0m komutunu kullanin, [34;1mIMGMOUNT[0m komutunu degil.
+.
+:PROGRAM_IMGMOUNT_ALREADY_MOUNTED
+Surucu zaten o harf ile olusturulmus.
+.
+:PROGRAM_IMGMOUNT_CANT_CREATE
+Dosyadan surucu olusturulamiyor.
+.
+:PROGRAM_IMGMOUNT_MOUNT_NUMBER
+Surucu numarasi %d %s olarak olusturuldu.
+.
+:PROGRAM_IMGMOUNT_NON_LOCAL_DRIVE
+Goruntu dosyasi yerel diskte yada host'ta olmali.
+.
+:PROGRAM_IMGMOUNT_MULTIPLE_NON_CUEISO_FILES
+Birden cok dosya kullanimi sadece cue/iso goruntu dosyalari icin desteklenir.
+.
+:PROGRAM_KEYB_INFO
+Codepage %i yuklendi.
+.
+:PROGRAM_KEYB_SHOWHELP
+[32;1mKEYB[0m [kavye duzeni ID[ codepage numarasi[ codepage dosyasi]]]
+
+Bazi ornekler:
+  [32;1mKEYB[0m: Su an yuklu olan codepage'i gosterir.
+  [32;1mKEYB[0m sp: Ispanyolca (SP) klavye duzenini yukler, duzgun bir codepage kullanir.
+  [32;1mKEYB[0m sp 850: Ispanyolca (SP) klavye duzenini yukler, codepage 850 kullanir.
+  [32;1mKEYB[0m sp 850 mycp.cpi: Yukaridakiyle ayni, mycp.cpi dosyasini kullanir.
+.
+:PROGRAM_KEYB_NOERROR
+ %s klavye dzeni kodsayfas %i yklendi.
+.
+:PROGRAM_KEYB_FILENOTFOUND
+Klavye dosyasi %s bulunamadi
+
+.
+:PROGRAM_KEYB_INVALIDFILE
+Klavye dosyasi %s gecersiz
+.
+:PROGRAM_KEYB_LAYOUTNOTFOUND
+%s'te codepage %i icin klavye duzeni yok
+.
+:PROGRAM_KEYB_INVCPFILE
+Klavye duzeni %s icin codepage yok yada gecersiz
+
+.
+:SHELL_ILLEGAL_PATH
+Gecersiz adres.
+.
+:SHELL_CMD_HELP
+Desteklenen tum komutlarin listesini istiyorsaniz [33;1mhelp /all[0m yazin.
+Cok sik kullanilan komutlarin kisa bir listesi:
+.
+:SHELL_CMD_ECHO_ON
+ECHO acik.
+.
+:SHELL_CMD_ECHO_OFF
+ECHO kapali.
+.
+:SHELL_ILLEGAL_SWITCH
+Gecersiz degistirme: %s.
+.
+:SHELL_MISSING_PARAMETER
+Gerekli parametre eksik.
+.
+:SHELL_CMD_CHDIR_ERROR
+Gecilemiyor: %s.
+.
+:SHELL_CMD_CHDIR_HINT
+Degisik bir surucuye gecmek icin [31m%c:[0m yazin.
+.
+:SHELL_CMD_CHDIR_HINT_2
+Dizin adi 8 karakterden uzun olamaz ve/veya bosluk iceremez.
+[31mcd %s[0m deneyin.
+.
+:SHELL_CMD_CHDIR_HINT_3
+Hala Z surucusundesiniz,[31mC:[0m ile atanmis bir dizine gecin.
+.
+:SHELL_CMD_MKDIR_ERROR
+Olusturulamiyor: %s.
+.
+:SHELL_CMD_RMDIR_ERROR
+Silinemiyor: %s.
+.
+:SHELL_CMD_DEL_ERROR
+Silinemiyor: %s.
+.
+:SHELL_SYNTAXERROR
+Komut sozdizimi yanlis.
+.
+:SHELL_CMD_SET_NOT_SET
+Environment degiskeni %s belirlenmemis.
+.
+:SHELL_CMD_SET_OUT_OF_SPACE
+Yeterli environment yeri kalmadi.
+.
+:SHELL_CMD_IF_EXIST_MISSING_FILENAME
+IF EXIST: Eksik dosya adi.
+.
+:SHELL_CMD_IF_ERRORLEVEL_MISSING_NUMBER
+IF ERRORLEVEL: Eksik numara.
+.
+:SHELL_CMD_IF_ERRORLEVEL_INVALID_NUMBER
+IF ERRORLEVEL: Gecersiz numara.
+.
+:SHELL_CMD_GOTO_MISSING_LABEL
+GOTO komutu icin hic etiket(label) belirlenmemis
+.
+:SHELL_CMD_GOTO_LABEL_NOT_FOUND
+GOTO: %s etiketi(label) bulunamadi.
+.
+:SHELL_CMD_FILE_NOT_FOUND
+%s dosyasi bulunamadi.
+.
+:SHELL_CMD_FILE_EXISTS
+%s dosyasi zaten var.
+.
+:SHELL_CMD_DIR_INTRO
+%s dizini
+.
+:SHELL_CMD_DIR_BYTES_USED
+%5d Dosya %17s Bayt
+.
+:SHELL_CMD_DIR_BYTES_FREE
+%5d dizin  %17s Bayt bos
+.
+:SHELL_EXECUTE_DRIVE_NOT_FOUND
+%c Surucusu yok!
+Once [31matanmali[0m. Daha fazla bilgi icin [1;33mintro[0m yada [1;33mintro mount[0m.
+.
+:SHELL_EXECUTE_ILLEGAL_COMMAND
+Gecersiz komut: %s.
+.
+:SHELL_CMD_PAUSE
+Devam etmek icin bir tusa basin.
+.
+:SHELL_CMD_PAUSE_HELP
+Devam etmek icin 1 tusa basilmasini bekler.
+.
+:SHELL_CMD_COPY_FAILURE
+Kopyalama basarisiz : %s.
+.
+:SHELL_CMD_COPY_SUCCESS
+   %d dosya kopyalandi.
+.
+:SHELL_CMD_SUBST_NO_REMOVE
+Surucu cikarmak desteklenmiyor. Hicbir sey yapilmadi.
+.
+:SHELL_CMD_SUBST_FAILURE
+SUBST basarisiz. Ya komut satirinda bir hata yaptiniz yada hedef surucu zaten kullaniliyor.
+SUBST'nin kullanimi sadece yerel suruculerde mumkundur.
+.
+:SHELL_STARTUP_BEGIN
+[44;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ [32mDOSBox'a Hogeldiniz! v%-8s[37m                                    บ
+บ                                                                    บ
+บ Yeni kullanmaya balayanlar, ksa bir giri iin [33mINTRO[37m yazn.      บ
+บ Desteklenen arayz komutlar iin [33mHELP[37m yazn.                      บ
+บ                                                                    บ
+บ Hz istiyorsanz, [31mctrl-F8[37m ve [31mctrl-F12[37m deneyin.                     บ
+บ Keymapper' amak iin [31mctrl-F1[37m.                                    บ
+บ Daha fazla bilgi iin dosbox dizinindeki [36mREADME[37m dosyasn okuyun.  บ
+บ                                                                    บ
+.
+:SHELL_STARTUP_CGA
+บ DOSBox composite CGA modunu destekliyor.                           บ
+บ Bu moddayken renkleri degistirmek icin [31m(alt-)F11[37m kullanin.         บ
+บ                                                                    บ
+.
+:SHELL_STARTUP_DEBUG
+บ Debugger acmak icin [31malt-Pause[37m'a basin yada exe'yi [33mDEBUG[37m ile acin.  บ
+บ                                                                    บ
+.
+:SHELL_STARTUP_END
+
+บ [32mEฆLENMENZE BAKIN![37m                                                 บ
+บ [32mDOSBox-Takm: [33mhttp://www.dosbox.com[37m                               บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+
+.
+:SHELL_CMD_CHDIR_HELP
+Su anki dizini gosterir/degistirir.
+.
+:SHELL_CMD_CHDIR_HELP_LONG
+CHDIR [surucu:][adres]
+CHDIR [..]
+CD [surucu:][adres]
+CD [..]
+
+  ..   Ust klasore gecmek istediginizi belirtir.
+
+Belirlenen surucude su anki dizini gormek icin CD surucusu: yazin.
+Su anki surucuyu ve dizini gormek icin CD yazin. (parametresiz)
+.
+:SHELL_CMD_CLS_HELP
+Ekrani temizler.
+.
+:SHELL_CMD_DIR_HELP
+Dizini gosterir.
+.
+:SHELL_CMD_ECHO_HELP
+Mesajlari gosterir ve komut tekrarlanmasini acar/kapar.
+.
+:SHELL_CMD_EXIT_HELP
+Arayuzden cikar.
+.
+:SHELL_CMD_HELP_HELP
+Yardimi gosterir.
+.
+:SHELL_CMD_MKDIR_HELP
+Dizin olusturur.
+.
+:SHELL_CMD_MKDIR_HELP_LONG
+MKDIR [surucu:][adres]
+MD [surucu:][adres]
+.
+:SHELL_CMD_RMDIR_HELP
+Dizin siler.
+.
+:SHELL_CMD_RMDIR_HELP_LONG
+RMDIR [surucu:][adres]
+RD [surucu:][adres]
+.
+:SHELL_CMD_SET_HELP
+Environment degiskenleri degistirir.
+.
+:SHELL_CMD_IF_HELP
+Batch programlarinda conditional processing yapar.
+.
+:SHELL_CMD_GOTO_HELP
+Batch dosyasi script'inde etiketlenmis(label) yere atlar.
+.
+:SHELL_CMD_SHIFT_HELP
+Batch script'inde leftshift commandline parametreleri.
+.
+:SHELL_CMD_TYPE_HELP
+Bir metin dosyasinin icindekilerini gosterir.
+.
+:SHELL_CMD_TYPE_HELP_LONG
+TYPE [surucu:][adres][dosyaadi]
+.
+:SHELL_CMD_REM_HELP
+Batch dosyasina yorum ekler.
+.
+:SHELL_CMD_REM_HELP_LONG
+REM [yorum]
+.
+:SHELL_CMD_NO_WILD
+Bu komut isteminin basit bir surumudur,wildcard'a izin yok!
+.
+:SHELL_CMD_RENAME_HELP
+Bir yada daha cok dosyanin adini degistirir.
+.
+:SHELL_CMD_RENAME_HELP_LONG
+RENAME [surucu:][adres]dosyaadi1 dosyaadi2.
+REN [surucu:][adres]dosyaadi1 dosyaadi2.
+
+Hedef dosyaniz icin yeni bir surucu yada adres belirtemeyeceginizi unutmayin.
+.
+:SHELL_CMD_DELETE_HELP
+Bir yada daha fazla dosya siler.
+.
+:SHELL_CMD_COPY_HELP
+Dosya kopyalar.
+.
+:SHELL_CMD_CALL_HELP
+Batch dosyasi icinden bir baska batch dosyasi baslatir.
+.
+:SHELL_CMD_SUBST_HELP
+Harici bir dizini bir surucuye atar.
+.
+:SHELL_CMD_LOADHIGH_HELP
+Upper memory'e bir program yukler.(xms=true,umb=true olmasi gerekir)
+.
+:SHELL_CMD_CHOICE_HELP
+Bir tusa basilmasini bekler ve ERRORLEVEL'i ayarlar.
+.
+:SHELL_CMD_CHOICE_HELP_LONG
+CHOICE [/C:choices] [/N] [/S] yazi
+  /C[:]choices  -  Izin verilebilen tuslari belirtir. Varsayilani: yn.
+  /N  -  Prompt sonundaki secimleri gostermez.
+  /S  -  Buyuk kucuk harf duyarli seceneklerin secilmesini saglar.
+  text  -  Prompt olarak gosterilecek yazi.
+.
+:SHELL_CMD_ATTRIB_HELP
+Hicbir sey yapmaz. Uyumluluk icin saglanmistir.
+.
+:SHELL_CMD_PATH_HELP
+Uyumluluk icin saglanmistir.
+.
+:SHELL_CMD_VER_HELP
+Bildirilen DOS versiyonunu gosterir ve degistirir.
+.
+:SHELL_CMD_VER_VER
+DOSBox versiyonu %s. Bildirilen DOS versiyonu %d.%d.
+.
